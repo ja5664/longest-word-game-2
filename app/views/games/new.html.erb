@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="play text-center">
+    <h1>Longest Word Game</h1>
+    <div class="subtitle">
+      <p><em>Use the letters below to make the longest word possible</em></p>
+    </div>
+  <div class="offset-md-4 col-md-4">
+    <div class="letters">
+    <% @chosen_letters.each do |letter| %>
+      <div class="box text-center">
+        <%= letter %>
+      </div>
+    <% end %>
+    </div>
+    <div class="form">
+      <p><em>Enter your best guess below:</em></p>
+      <form action="/score" method="post">
+        <div class="form-group">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <%= hidden_field_tag("grid", @chosen_letters) %>
+          <input type="text" name="attempt" class="form-control">
+          <div class="form-button">
+            <input type="submit" class="btn btn-primary btn-block">
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

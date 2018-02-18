@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="play text-center">
+    <h1>Longest Word Game</h1>
+    <div class="subtitle">
+      <p><em>Your attempt </em><strong><%= params[:attempt] %></strong><em> was:</em></p>
+      <p><em><%= @result[:text] %></em></p>
+      <p><em>Your grid of letters was:</em></p>
+    </div>
+    <div class="offset-md-4 col-md-4">
+      <div class="letters">
+      <% (params[:grid]).split.each do |letter| %>
+        <div class="box text-center">
+          <%= letter %>
+        </div>
+      <% end %>
+      </div>
+      <div class="score">
+        <% if @result[:valid] %>
+          <p><em>You scored:</em></p>
+          <p>2</p>
+        <% else %>
+          <p><em>You scored:</em></p>
+          <p>0</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
